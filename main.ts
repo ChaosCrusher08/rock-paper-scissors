@@ -4,24 +4,32 @@ let hand = 0
 input.onButtonPressed(Button.A, function () {
     player_A_score += 1
     basic.showNumber(player_A_score)
-})
-// when b is pressed
-input.onButtonPressed(Button.AB, function () {
     // asks if the score is at 3
-    if (player_A_score == 2) {
+    if (player_A_score == 10) {
         basic.showString("player A wins")
-    }
-    if (player_b_score == 2) {
-        basic.showString("player B wins")
+        player_A_score = 0
+        player_b_score = 0
     }
 })
 input.onButtonPressed(Button.B, function () {
     player_b_score += 1
     basic.showNumber(player_b_score)
+    if (player_b_score == 10) {
+        basic.showString("player B wins")
+        player_A_score = 0
+        player_b_score = 0
+    }
 })
 input.onGesture(Gesture.Shake, function () {
     hand = randint(1, 3)
     if (hand == 1) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
         basic.showLeds(`
             # # # # #
             # . . . #
@@ -32,12 +40,26 @@ input.onGesture(Gesture.Shake, function () {
     } else if (hand == 2) {
         basic.showLeds(`
             . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.showLeds(`
+            . . . . .
             . # # # .
             . # # # .
             . # # # .
             . . . . .
             `)
-    } else {
+    } else if (hand == 3) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
         basic.showLeds(`
             # # . . #
             # # . # .
