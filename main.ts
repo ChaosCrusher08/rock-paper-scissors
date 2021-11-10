@@ -1,6 +1,7 @@
 let player_A_score = 0
 let player_b_score = 0
 let hand = 0
+// Adds a point to player A's score 
 input.onButtonPressed(Button.A, function () {
     player_A_score += 1
     basic.showNumber(player_A_score)
@@ -11,6 +12,7 @@ input.onButtonPressed(Button.A, function () {
         player_b_score = 0
     }
 })
+// Adds a point to player B's score
 input.onButtonPressed(Button.B, function () {
     player_b_score += 1
     basic.showNumber(player_b_score)
@@ -20,6 +22,7 @@ input.onButtonPressed(Button.B, function () {
         player_b_score = 0
     }
 })
+// Shows rock, paper, or scissors
 input.onGesture(Gesture.Shake, function () {
     hand = randint(1, 3)
     if (hand == 1) {
